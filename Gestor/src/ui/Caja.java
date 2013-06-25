@@ -2,6 +2,10 @@ package ui;
 
 import javax.swing.JPanel;
 
+/**
+ * @author jedabero
+ *
+ */
 public class Caja extends JPanel {
 
 	/**
