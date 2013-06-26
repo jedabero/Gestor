@@ -5,23 +5,39 @@ package items;
  *
  */
 public class Item {
-	
-	private double precio;
+
+	private int id;
+	private double valor;
 	private String nombre;
-	private long id;
+	private String categoria;
+	private String descripcion;
+	
+	/**
+	 * @return el numero de identificacion
+	 */
+	public int getId() {
+		return id;
+	}
+
+	/**
+	 * @param id la nueva id
+	 */
+	public void setId(int id) {
+		this.id = id;
+	}
 	
 	/**
 	 * @return el valor del item
 	 */
-	public double getPrecio() {
-		return precio;
+	public double getValor() {
+		return valor;
 	}
 
 	/**
-	 * @param precio el nuevo valor del item
+	 * @param valor el nuevo valor del item
 	 */
-	public void setPrecio(double precio) {
-		this.precio = precio;
+	public void setValor(double valor) {
+		this.valor = valor;
 	}
 
 	/**
@@ -39,30 +55,48 @@ public class Item {
 	}
 
 	/**
-	 * @return el numero de identificacion
+	 * @return the categoria
 	 */
-	public long getId() {
-		return id;
+	public String getCategoria() {
+		return categoria;
 	}
 
 	/**
-	 * @param id la nueva id
+	 * @param categoria the categoria to set
 	 */
-	public void setId(long id) {
-		this.id = id;
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+
+	/**
+	 * @return the descripcion
+	 */
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	/**
+	 * @param descripcion the descripcion to set
+	 */
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
 	public Item (){
-		this.setPrecio(0d);
-		this.setNombre("");
-		this.setId(0L);
+		this(0, null, 0d, null, null);
 	}
 	
-	public Item (double precio, String nombre, long id){
-		this.setPrecio(precio);
-		this.setNombre(nombre);
-		this.setId(id);
+	public Item (int id, String nombre, double valor){
+		this(id, nombre, valor, "N/A", "N/A");
+		
 	}
 	
+	public Item (int id, String nombre, double valor, String categ, String descrip){
+		 this.setId(id);
+		 this.setValor(valor);
+		 this.setNombre(nombre);
+		 this.setCategoria(categ);
+		 this.setDescripcion(descrip);
+	}
 	
 }
