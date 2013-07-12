@@ -19,7 +19,12 @@ public class Database {
 	private String password;
 	
 	private Connection baseCon;
+	public Connection getBaseCon(){
+		return baseCon;
+	}
+	
 	private PreparedStatement showTables;
+	
 	private ArrayList<String> tableNames = new ArrayList<String>();
 	
 	public Database(String databaseName, String user, String password){
@@ -50,6 +55,9 @@ public class Database {
 		
 	}
 	
-	
+	public Table createTable(String name, ArrayList<String> cols, ArrayList<String> types){
+		Table table = new Table(this, name, cols, types);
+		return table;
+	}
 	
 }
