@@ -14,6 +14,10 @@ import java.util.ArrayList;
 public class Database {
 
 	private String databaseName;
+	public String getDatabaseName() {
+		return databaseName;
+	}
+
 	private String url = "jdbc:mysql://localhost:3306/";
 	private String user;
 	private String password;
@@ -32,12 +36,12 @@ public class Database {
 		this.user = user;
 		this.password = password;
 		
-		init();
+		initDatabase();
 		
 		
 	}
 	
-	private void init(){
+	private void initDatabase(){
 		
 		try {
 			baseCon = DriverManager.getConnection(url+databaseName, user, password);
@@ -56,7 +60,12 @@ public class Database {
 	}
 	
 	public Table createTable(String name, ArrayList<String> cols, ArrayList<String> types){
-		Table table = new Table(this, name, cols, types);
+		Table table = null;
+		try {
+			table = new Table(this, name, cols, types);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return table;
 	}
 	
